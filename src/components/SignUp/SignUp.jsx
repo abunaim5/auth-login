@@ -22,6 +22,10 @@ const SignUp = () => {
             setSignUpError('Password should be 8 character or long');
             return;
         }
+        if(!/[A-Z]/.test(password)){
+            setSignUpError('Password should contain minimum 1 uppercase letter');
+            return;
+        }
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
@@ -39,7 +43,6 @@ const SignUp = () => {
             .catch(error => {
                 const errorMessage = error.message;
                 setSignUpError(errorMessage);
-                // console.log(signUpError);
             })
 
         console.log(name, email, password);
