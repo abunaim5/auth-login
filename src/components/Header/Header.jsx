@@ -4,6 +4,7 @@ const Header = () => {
     const navLinks = <>       
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/signUp'>Sign Up</NavLink></li>
+        <li><NavLink to='/heroSignUp'>Hero SignUp</NavLink></li>
         <li><NavLink to='/login'>LogIn</NavLink></li>
     </>
 
