@@ -1,10 +1,12 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
     const [success, setSuccess] = useState('');
     const [signUpError, setSignUpError] = useState('');
+    const [showPass, setShowPass] = useState(false);
 
 
     const handleRegister = e => {
@@ -51,7 +53,7 @@ const SignUp = () => {
                 <br />
                 <input className="px-3 py-2 border" type="email" name="email" id="iEmail" placeholder="Email" required />
                 <br />
-                <input className="px-3 py-2 border" type="password" name="password" id="iPassword" placeholder="password" required />
+                <div className="relative"><input className="px-3 py-2 border" type={showPass ? 'text' : 'password'} name="password" id="iPassword" placeholder="password" required /><span onClick={() => setShowPass(!showPass)} className="absolute top-[14px] right-2">{showPass ? <FaEyeSlash /> : <FaEye />}</span></div>
                 <br />
                 <input className="btn btn-primary w-full" type="submit" value="Register" id="iButton" />
             </form>
